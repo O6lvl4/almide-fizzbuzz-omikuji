@@ -18,7 +18,7 @@ pub effect fn today_fortune() -> Result[String, String] = {
   let n = (ts % 100) + 1
   let fb = fizzbuzz.fizzbuzz(n)
   let luck = fortune(n)
-  "今日の数字は " ++ int.to_string(n) ++ " (" ++ fb ++ ") → " ++ luck
+  ok("今日の数字は " ++ int.to_string(n) ++ " (" ++ fb ++ ") → " ++ luck)
 }
 
 test "FizzBuzz is 大吉" {

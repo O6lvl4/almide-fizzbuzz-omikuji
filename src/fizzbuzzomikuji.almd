@@ -1,0 +1,38 @@
+module fizzbuzzomikuji
+import fizzbuzz
+import int
+import list
+import string
+import env
+
+pub fn fortune(n: Int) -> String = {
+  let result = fizzbuzz.fizzbuzz(n)
+  if result == "FizzBuzz" then "大吉"
+  else if result == "Fizz" then "吉"
+  else if result == "Buzz" then "中吉"
+  else "小吉"
+}
+
+pub effect fn today_fortune() -> Result[String, String] = {
+  let ts = env.unix_timestamp()
+  let n = (ts % 100) + 1
+  let fb = fizzbuzz.fizzbuzz(n)
+  let luck = fortune(n)
+  "今日の数字は " ++ int.to_string(n) ++ " (" ++ fb ++ ") → " ++ luck
+}
+
+test "FizzBuzz is 大吉" {
+  assert_eq(fortune(15), "大吉")
+}
+
+test "Fizz is 吉" {
+  assert_eq(fortune(3), "吉")
+}
+
+test "Buzz is 中吉" {
+  assert_eq(fortune(5), "中吉")
+}
+
+test "number is 小吉" {
+  assert_eq(fortune(1), "小吉")
+}

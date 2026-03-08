@@ -1,0 +1,6 @@
+[package]
+name = "fizzbuzzomikuji"
+version = "0.1.0"
+
+[dependencies]
+almide-fizzbuzz = { git = "https://github.com/O6lvl4/almide-fizzbuzz", tag = "v0.1.0" }
